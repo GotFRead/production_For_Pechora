@@ -1,0 +1,18 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Поставки</title>
+</head>
+{% extends "base_generic.html"  %}
+{% block content %}
+    <form method="POST" action="create_deliveries">
+    {% csrf_token %}
+        <p> <label> Изменить количество бревен </label> <input type="number" name="count" placeholder="{{count_input}}"> </p>
+        <p> <label> Изменить средняя  длина древесины (м) </label> <input type="number" name="lenght" placeholder="{{lenght_input}}"> </p>
+        <p> <label> Изменить коэффициент заполнение </label> <input type="number" name="procent" placeholder="{{procent_input}}"> </p>
+        <p> <label> Изменить номер машины </label> <input type="text" name="number" placeholder="{{number_input}}"> </p>
+        <p> <label> Изменить пункт отправки </label> <input type="text" name="out_point" placeholder="{{out_point_input}}"> </p>
+        <p> <label> Изменить пункт прибытия </label> <input type="text" name="input_point" placeholder="{{input_point_input}}"> </p>
+        <input type="submit" value="Завершить заполнение">
+    {% endif %}
+    </form>
+{% endblock %}

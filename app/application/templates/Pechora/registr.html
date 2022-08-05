@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" >Регистрация</button>
+    </form>
+    <div class="lftbutt">
+        <form  class="formbutton">
+            <button  type="submit" formaction="http://127.0.0.1:8000/">
+                Вернуться
+            </button>
+        </form>
+    </div>
+</body>
+</html>

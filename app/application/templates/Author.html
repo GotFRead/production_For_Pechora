@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Система учета леса</title>
+    <link rel="stylesheet" href="static/css/styleMainForm.css">
+</head>
+
+
+<body>
+    <header class="header">
+
+        <div class="container" id="container">
+
+
+        </div>
+
+    </header>
+
+    <form method="POST">
+        {% csrf_token %}
+    
+    <section class="section" id="section">
+
+        <div class="container" id="container">
+            
+            <div class="login" id="login">
+                <div class="form-error">{{ form.non_filed_errors }}  </div>
+                {% for f in form %}
+                    <p> {{ f }} </p>
+                    <div class="form-error">{{ f.errors }}</div>
+                {% endfor %}
+                 
+                 <div class="buttons">
+
+                    <div class="enter">
+                        <button type="submit">
+                        Вход
+                        </button>
+                    </div>
+                        <div class="register">
+                                <button onclick="document.location='/registration'">
+                                Регистрация
+                                </button>
+                        </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    </form>
+
+
+</body>
+   
+    <footer class="footer" id="footer">
+        <div class="container" id="container">
+
+        </div>
+    </footer>
+</html>

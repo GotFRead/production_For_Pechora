@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends "base_generic.html"  %}
+
+    {% block content %}
+        <form method="POST" action="/">
+            {% csrf_token %}
+            <p> <label> Введите наименование древесины </label>  <input type="text" name="name_wood" ></p>
+            <p> <label> Введите количество древесины </label>  <input type="text" name="count_wood" ></p>
+            <p> <label> Введите класс древесины </label>  <input type="text" name="class_wood" ></p>
+            <p> <input type="submit" value="Сохранить"></p>
+        </form>
+{% endblock %}
+</body>
+</html>

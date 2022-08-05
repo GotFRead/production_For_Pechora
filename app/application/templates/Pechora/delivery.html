@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поставки</title>
+</head>
+<body>
+
+{% extends 'base_generic.html' %}
+{% block content %}
+    <form method="POST" action="create/">
+    {% csrf_token %}
+    {% if deliveries.count > 0 %}
+        <h2>Список поставок</h2>
+         <table class="main-table">
+          <thead border-collapse="2px">
+            <tr><th>Номер поставки</th><th>Дата</th><th>Кубатура</th><th>Количество поставки</th><th>Номер машины</th></tr>
+          </thead>
+          <tbody>
+            {% for delivery in deliveries %}
+            <tr>
+                <td>{{ delivery.id }}</td>
+                <td>{{ delivery.date_arrival_point }}</td>
+                <td>{{ delivery.cubage_deliveries }}</td>
+                <td>{{ delivery.count_deliveries }}</td>
+                <td>{{ delivery.truck_number }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h6>Записи о поставках отсутствуют</h6>
+    {% endif %}
+    </form>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Система учета леса</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+
+</head>
+<body  background='../static/image/black-background-2.png'>
+    <header>
+
+        <div class="container">
+            <div class="menu">
+                <a href="{% url 'balance' %}" class="btn menu-btn btn-left">
+                    Склад
+                </a>
+                <a href="{% url 'delivery' %}" class="btn menu-btn btn-center">
+                    Поставки
+                </a>
+                <a href="{% url 'type' %}" class="btn menu-btn btn-center">
+                   <nobr> Тип древесины </nobr>
+                </a>
+                <a href="{% url 'expenses' %}" class="btn menu-btn btn-right">
+                    Расходы
+                </a>
+            </div>
+        </div>
+
+    </header>
+
+    <section>
+        <div class="container mid-cont">
+            <div class="table">
+                <div class="sidebar" align="center">
+                     <h6 class=""> Фильтр по категориям</h6>
+                        {% if sidebarCategory.count > 0 %}
+                        <ul class="list" id="list">
+                            {% for sidebar in sidebarCategory  %}
+                            <li>{{ sidebar }} <label hidden> {{ sidebar.id }}</label>
+                                <ul hidden>
+                                {% for subheading in subheadingCategory  %}
+                                <li> <a href="./?'category={{sidebar.id}}'/subcategory={{subheading.metric_of_logs}}"> {{ subheading }} </a> </li>
+                                {% endfor %}
+                            </ul> </li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <h6> Категории отсутствуют </h6>
+                        {% endif %}
+                    <h2><a href="{% url 'balance' %}" class="row-2"> Сбросить фильтры </a></h2>
+
+                <div class="menu-1" >
+                <h6> Отчет по таблицам:</h6>
+
+                <a href="{% url 'download_balance' %}" >
+                            Склад
+                </a>
+                <a href="{% url 'download_delivery' %}" >
+                            Поставки
+                </a>
+                <a href="{% url 'download_type_of_wood' %}" >
+                           Тип древесины
+                </a>
+                <a href="{% url 'download_expenses' %}" >
+                            Расходы
+                </a>
+
+            </div>
+
+                </div>
+                <div class="view">
+                <div class="block2">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="menu">
+                <h6>
+                 CopyRight ООО "Печора", 2022. Все права защищены.
+                </h6>
+            </div>
+        </div>
+    </footer>
+    <script src="../static/js/site.js"></script>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,98 @@
+.header {
+    width: 1920;
+    height: 105;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+.zagolovok {
+    text-align: center
+}
+
+.login{
+    padding: 0.5%;
+margin:auto;
+width: 650px;
+height: 350px;
+background: #FFFFFF;
+box-shadow: 0px 100px 1px rgba(0, 0, 0, 0.46);
+border-radius: 36px;
+}
+
+.container{
+    margin-bottom: 8%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'inter';
+    color: #RRR;
+    background: url('../image/background2.jpg') no-repeat center top/cover;
+    font-size: 48;
+}
+
+h1{
+margin-top: auto;
+font-family: 'inter';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 105px;
+color: #000;
+}
+
+.input{
+margin: 5% auto;
+width: 474px;
+height: 67px;
+background: #D9D9D9;
+border-radius: 10px;
+display: flex;
+align-items: center;
+}
+
+.input input{
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    text-indent: 10px;
+    color: rgb(0, 0, 0);
+    outline: 0.1;
+}
+
+.buttons{
+    margin-left: auto;
+    display: flex;
+}
+
+.buttons button{
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    text-indent: 10px;
+    color: rgb(0, 0, 0);
+    outline: 0.1;
+}
+.enter{
+    margin-left: 13.5%;
+    width: 186px;
+    height: 61px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+.register{
+    margin-left: 15.5%;
+    width: 186px;
+    height: 61px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}

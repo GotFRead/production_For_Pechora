@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ввод расходов</title>
+</head>
+<body>
+    {% extends 'base_generic.html' %}
+    {% block content %}
+    <div class="table">
+        <div class="input-group">
+            <form method="POST" action="add_expenses/">
+                {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="form-group"> <label class="error"> {{ message|safe }} </label> </div>
+                        {% endfor %}
+                    {% endif %}
+                <div class="form-group"> <label class="label-control"> Выберите тип древесины </label>  <select class="form-control" name="name_wood" required id="id_name_wood">
+                       <option value selected>--------</option>
+                        {% for type_of_wood in type_of_woods  %}
+                        <option value="{{type_of_wood.id}}">{{type_of_wood.name}}</option>
+                        {%endfor%}
+                    </select></div>
+
+                <div class="form-group"> <label class="label-control"> Введите количество штук </label> <input class="form-control" type="number" name="count" > </div>
+                <div class="form-group"> <label class="label-control"> Введите среднюю длину</label> <input class="form-control" type="number" name="length" > </div>
+                <div class="form-group"> <label> Введите диаметр группы</label> <input class="form-control" type="number" name="diametr" > </div>
+                <div class="form-group"> <input class="butn btn-submit" type="submit" value="Завершить заполнение"> </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

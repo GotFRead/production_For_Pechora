@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+    <body>
+    {% extends "base_generic.html" %}
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <section class="container" >
+            <h1 class="author" align="center"> Авторизация </h1>
+            <table align="center">
+                <tr><th> <label></label> </th>  </tr>
+                <tr> <th> <label class="logpas"> Логин </label> </th>  <th> <input type="text" name="login" value="{{person.name}}"> </th> </tr>
+                <tr> <th> <label></label> </th> </tr>
+                <tr> <th> <label class="logpas"> Пароль </label> </th> <th> <input type="text" name="password" value="{{person.name}}"> </th> </tr>
+                <tr><th> <label></label> </th>  </tr>
+                <tr> <th> <a href="{% url 'index' %}"> Войти </a> </th>  <th>  <a href="{% url 'registration' %}" >Зарегистрироваться </a> </th>  </tr>
+                <tr><th> <label></label> </th>  </tr>
+                <tr><th> <label></label> </th>  </tr>
+            </table>
+
+        </section>
+    </form>
+    {% endblock %}
+</body>
+</html>

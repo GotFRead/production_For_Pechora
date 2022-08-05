@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Расходы</title>
+</head>
+<body>
+
+{% extends "base_generic.html"  %}
+
+{% block content %}
+            <form method="POST" action="create/">
+            {% csrf_token %}
+            {% if expenses.count > 0 %}
+            <h2>Расходы</h2>
+            <table class="main-table">
+                <tr> <th> Наименование деревесины</th> <th>Кубатура бревен</th><th>Количество бревен</th><th>Класс древесины</th> <th>Дата реализации </th></tr>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.name_wood }}</td>
+                    <td>{{ expense.cubage }} куб(ов) </td>
+                    <td>{{ expense.count }} шт </td>
+                    <td>{{ expense.size_wood }} </td>
+                    <td>{{ expense.date_realization }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <h2>Записи о расходах отсутствуют </h2>
+            {% endif %}
+            </form>
+{% endblock %}
+
+</body>
+</html>

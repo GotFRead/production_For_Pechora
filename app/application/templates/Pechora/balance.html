@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+
+{% extends "base_generic.html"  %}
+{% block content %}
+    <form method="POST" action="create/">
+    {% csrf_token %}
+    {% if balances.count > 0 %}
+        <h2>Баланс на предприятии</h2>
+         <table class="main-table">
+          <thead border-collapse="2px">
+            <tr><th>Наименование деревесины</th>
+                <th>Размеры бревен</th>
+                <th>Количество бревен</th>
+                <th>Cредняя длина</th>
+                <th>Кубатура</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for balance in balances %}
+            <tr>
+                <td>{{ balance.name_wood }}</td>
+                <td>{{ balance.size_wood }}</td>
+                <td>{{ balance.count }}</td>
+                <td>{{ balance.length }}</td>
+                <td>{{ balance.cubage }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h6>Записи о поставках отсутствуют</h6>
+    {% endif %}
+    </form>
+{% endblock %}
+
+</body>
+</html>

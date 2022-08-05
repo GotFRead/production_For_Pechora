@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тип древесины</title>
+</head>
+<body>
+
+{% extends "base_generic.html"  %}
+
+
+{% block content %}
+            <form method="POST" action="create/">
+            {% csrf_token %}
+            {% if type.count > 0 %}
+            <h2>Номенклатура</h2>
+            <table class="main-table">
+                <tr> <th> Номер наименование </th> <th>Наименование деревесины</th></tr>
+                {% for type in type %}
+                <tr>
+                    <td>{{ type.id }}</td>
+                    <td>{{ type.name}} </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <h2>Записи о древесине отсутствуют </h2>
+            {% endif %}
+            </form>
+{% endblock %}
+</body>
+</html>
